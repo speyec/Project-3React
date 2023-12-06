@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { firestore } from "./firebase";
 import "firebase/firestore";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 
   export default function GasStations() {
     const [gasStations, setGasStations] = useState([]);
@@ -12,7 +12,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
       const r =[]
 
       querySnapshot.forEach((doc) => {
-        r.push(doc.data().content);
+        r.push({ id: doc.id, ...doc.data() });
       });
 
       setGasStations(gasStations.concat(r));
@@ -26,12 +26,12 @@ import { collection, getDocs, query, where } from "firebase/firestore";
   return (
     <div>
       <h1>Gas Stations</h1>
-        {gasStations.map((gasStation) =>  (
-          <div key={gasStation.id}>
-            <h2>{gasStation.name}</h2>
-            <p>{gasStation.address}</p>
-            <p>{gasStation.distance}</p>
-            <p>{gasStation.price}</p>
+        {gasStations.map((gasStations) =>  (
+          <div key={gasStations.id}>
+            <h2>{gasStations.Name}</h2>
+            <p>{gasStations.Address}</p>
+            <p>{gasStations.Distance}</p>
+            <p>{gasStations.Price}</p>
           </div>
         )
         )}
