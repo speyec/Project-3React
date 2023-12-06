@@ -1,31 +1,28 @@
 import React, {useState, useEffect} from "react";
-import firebase from "./firebase";
+import { firestore } from "./firebase";
+import "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
-  function GasStations() {
-  const [gasStations, setGasStations] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const ref = firebase.firestore().collection("gasStations");
+  export default function GasStations() {
+    const [gasStations, setGasStations] = useState([]);
+   
+    async function getGasStations() {
+      const ref = query(collection(firestore, "gasStations"));
+      const querySnapshot = await getDocs(ref);
+      const r =[]
 
-  function getGasStations() {
-    setLoading(true)
-    ref.onSnapshot((querySnapshot) => {
-      const items = [];
       querySnapshot.forEach((doc) => {
-        items.push({id: doc.id, ...doc.data() });
+        r.push(doc.data().content);
       });
-      setGasStations(items);
-      setLoading(false);
+
+      setGasStations(gasStations.concat(r));
     }
-    )
-  }
+    
 
   useEffect(() => {
     getGasStations();
   }, []);
 
-  if (loading) {
-    return <h1>Loading/...</h1>
-  }
   return (
     <div>
       <h1>Gas Stations</h1>
@@ -42,4 +39,3 @@ import firebase from "./firebase";
   );
 }
 
-export default GasStations;

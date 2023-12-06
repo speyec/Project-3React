@@ -4,7 +4,7 @@ import { getAnalytics } from "firebase/analytics";
 
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "@firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,10 +20,10 @@ const firebaseConfig = {
   measurementId: "G-20G0FMNWG2"
 };
 
-// Initialize Firebase
+// // Initialize Firebase
+// // const app = initializeApp(firebaseConfig);
+// // const analytics = getFirestore(app);
+
+// // const firestore = firebase.firestore();
 const app = initializeApp(firebaseConfig);
-const analytics = getFirestore(app);
-
-//firebase.initializeApp(firebaseConfig);
-
-export default firebase;
+export const firestore = getFirestore(app);
