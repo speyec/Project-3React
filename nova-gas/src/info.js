@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import firebase from "./firebase";
 
-export default function GasStations() {
+  function GasStations() {
   const [gasStations, setGasStations] = useState([]);
   const [loading, setLoading] = useState(false);
   const ref = firebase.firestore().collection("gasStations");
@@ -11,7 +11,7 @@ export default function GasStations() {
     ref.onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((doc) => {
-        items.push(doc.data());
+        items.push({id: doc.id, ...doc.data() });
       });
       setGasStations(items);
       setLoading(false);
@@ -19,9 +19,9 @@ export default function GasStations() {
     )
   }
 
-  useEffect[() => {
+  useEffect(() => {
     getGasStations();
-  }, []];
+  }, []);
 
   if (loading) {
     return <h1>Loading/...</h1>
@@ -29,7 +29,7 @@ export default function GasStations() {
   return (
     <div>
       <h1>Gas Stations</h1>
-        {gasStations.map((gasStation)=>  (
+        {gasStations.map((gasStation) =>  (
           <div key={gasStation.id}>
             <h2>{gasStation.name}</h2>
             <p>{gasStation.address}</p>
@@ -41,3 +41,5 @@ export default function GasStations() {
     </div>
   );
 }
+
+export default GasStations;
