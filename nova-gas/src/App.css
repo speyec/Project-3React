@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #000000;
+  color: blanchedalmond;
 }
 
 .App-link {
@@ -38,8 +38,8 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
-  color: #000000;
+  background: linear-gradient(to right, blue, white);
+  color: lightcyan;
   line-height: 1.6;
 }
 
@@ -49,7 +49,7 @@ body {
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  background-color: #ccc; 
+  background-color: blanchedalmond; 
   color: #333; 
   border-radius: 5px;
   cursor: pointer;
@@ -57,7 +57,7 @@ body {
 }
 
 .button:hover {
-  background-color: #999; 
+  background-color: lightgray; 
 }
 
 /* New Stuff */
@@ -68,7 +68,7 @@ body {
 }
 
 .gas-station-card {
-  background-color: #fff;
+  background: lightcyan;
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -77,7 +77,7 @@ body {
 }
 
 .gas-station-card h2 {
-  color: #3498db;
+  color: black;
   font-size: 24px;
   margin-bottom: 10px;
 }

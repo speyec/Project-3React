@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       {view === 'App' ? (
         <header className="App-header">
-          <h1>Welcome to Nova Gas</h1>
+          <h1>Welcome to NovaGas</h1>
           <button className="button" onClick={handleClick}>Gas Station Information</button>
         </header>
       ) : (
