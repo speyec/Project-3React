@@ -17,7 +17,7 @@ function App() {
       {view === 'App' ? (
         <header className="App-header">
           <h1>Welcome to Nova Gas</h1>
-          <button onClick={handleClick}>Switch to Index</button>
+          <button onClick={handleClick}>Gas Station Information</button>
         </header>
       ) : (
         <GasStations />
