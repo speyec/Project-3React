@@ -1,26 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 import firebase from './firebase';
+import React, { useState } from 'react';
+
+import GasStations from './info';
 
 function App() {
-  return (
+ const [view, setView] = useState('App');
+
+ const handleClick = () => {
+    setView(null);
+ }
+
+ return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {view === 'App' ? (
+        <header className="App-header">
+          <h1>Welcome to Nova Gas</h1>
+          <button onClick={handleClick}>Switch to Index</button>
+        </header>
+      ) : (
+        <GasStations />
+      )}
     </div>
-  );
+ );
 }
 
 export default App;

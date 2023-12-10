@@ -3,7 +3,6 @@ import { StyleSheet} from 'react'
 import { firestore } from "./firebase";
 import "firebase/firestore";
 import { collection, getDocs, query } from "firebase/firestore";
-import './GasStations.css';
 
   export default function GasStations() {
     const [gasStations, setGasStations] = useState([]);

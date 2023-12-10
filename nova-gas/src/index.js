@@ -7,7 +7,7 @@ import GasStations from './info';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GasStations/>
+    <App />
   </React.StrictMode>
 );
 
