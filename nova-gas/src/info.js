@@ -25,25 +25,13 @@ import { collection, getDocs, query } from "firebase/firestore";
   }, []);
 
   return (
-    // <div>
-    //   <h1>Gas Stations</h1>
-    //     {gasStations.map((gasStations) =>  (
-    //       <div key={gasStations.id}>
-    //         <h2>{gasStations.Name}</h2>
-    //         <p>{gasStations.Address}</p>
-    //         <p>{gasStations.Distance}</p>
-    //         <p>{gasStations.Price}</p>
-    //       </div>
-    //     )
-    //     )}
-    // </div>
     <div className="gas-stations-container">
       <h1>Gas Stations</h1>
       {gasStations.map((gasStation) => (
         <div className="gas-station-card" key={gasStation.id}>
           <h2>{gasStation.Name}</h2>
           <p>{gasStation.Address}</p>
-          <p className="distance">{gasStation.Distance}</p>
+          <p>{gasStation.Distance}</p>
           <p className="price">{gasStation.Price}</p>
         </div>
       ))}
